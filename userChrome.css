@@ -1,0 +1,280 @@
+:root {
+	/* 
+	== VARIABLES ==
+	*/
+	--color-op-0: #0000114b;
+	--color-op-1: #00001191;
+	--color-op-2: #000044af;
+	--color-solid: #8babff;
+	--color-hover: #8bacff60;
+	
+	--color-tab-windec: none;
+	--color-url-bg: var(--color-op-1);
+	--color-tab: var(--color-op-0);
+	--color-active-tab: var(--color-op-1);
+	--color-toolbox: var(--color-active-tab);
+	--color-active-tab-indicator: var(--color-solid);
+
+	--corner-radius: 4px;
+	--bg-blur: blur(10px);
+	--navbar-margin: -34px !important;
+	--urlbar-height: 28px !important;
+	--urlbar-toolbar-height: 30px !important; 
+}
+
+
+/*
+================================================
+TRANSPARENT WINDOW
+================================================
+*/
+
+#main-window {
+	font-kerning: normal;
+	background: transparent !important;
+	border: none !important;
+	-moz-appearance: -moz-mac-vibrancy-dark !important;
+}
+
+
+/* 
+================================================
+TABBAR
+================================================
+*/
+
+/* tab and window decoration container */
+#TabsToolbar{
+	-moz-appearance: none !important;
+	background: var(--color-tab-windec) !important;
+	backdrop-filter: var(--bg-blur) !important;
+	margin-bottom: 1px !important;
+}
+
+/* Tabs and add tab */
+.toolbar-items {
+	background: none !important;
+	-moz-appearance: -moz-mac-vibrancy-dark !important;
+}
+
+/* individual tabs */
+.tab-background {
+	background: var(--color-tab) !important;
+	backdrop-filter: var(--bg-blur) !important;
+	-moz-appearance: -moz-mac-vibrancy-dark !important;
+}
+
+/* active tab */
+.tab-background[selected="true"] {
+	background: var(--color-active-tab) !important;
+}
+
+.tab-line[selected="true"] {
+	background-color: var(--color-active-tab-indicator) !important;
+}
+
+.tabbrowser-tab::after,
+.tabbrowser-tab::before {
+	/* Remove the lines between tabs */
+	border-left: none !important;
+}
+
+.tabbrowser-tab {
+	border-radius: var(--corner-radius) !important;
+	border-width: 0;
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+	padding: 0 !important;
+}
+
+
+/*
+================================================
+TOOLBAR
+================================================
+*/
+
+toolbox#navigator-toolbox {
+	/* remove thin border from toolbox */
+	border: 0 !important;
+}
+
+.browser-toolbar {
+	background: var(--color-toolbox) !important;
+}
+
+toolbar#nav-bar {
+	background: var(--color-active-tab) !important;
+	margin-top: 0px !important;
+}
+
+/* === auto hide nav bar  === */
+#nav-bar {
+	margin-top: 0;
+	margin-bottom: var(--navbar-margin);
+	z-index: -110;
+	visibility: hidden !important;
+}
+
+#navigator-toolbox:focus-within > #nav-bar,	
+#navigator-toolbox:hover > #nav-bar {
+	margin-top: 0;
+	margin-bottom: var(--navbar-margin);
+	z-index: 100;
+	visibility: visible !important;
+}
+/* === End of auto hide nav bar === */
+
+#urlbar-background, #searchbar {
+	backdrop-filter: var(--bg-blur);
+	background: var(--color-url-bg) !important;
+	border-radius: var(--corner-radius) !important;
+	border: 0 !important;
+}
+
+.toolbarbutton-1 {
+	--toolbarbutton-hover-background: var(--color-hover) !important;
+	--toolbarbutton-active-background: var(--color-hover) !important;
+}
+
+#urlbar #identity-icon {
+	visibility: collapse !important;
+	transition: 300ms !important; /* Animate icon hiding */
+	opacity: 0 !important; /* Make icons transparent */
+	-moz-margin-end: -1.1em !important; /* Hide icons by offsetting them */
+}
+
+/* Show info icon on identity-box hover */
+#identity-box:hover #identity-icon {
+	visibility: visible !important;
+	transition: 300ms !important; /* Animate icon showing */
+	opacity: 1 !important; /* Make icons opaque */
+	-moz-margin-end: initial !important; /* Use initial margins to show icons */
+}
+
+#tracking-protection-icon-container {
+	display: none !important;
+}
+
+/* Page action-buttons "slide in" when cursor is on top of them and don't reserve space when not used */
+#page-action-buttons > *[class^=urlbar-icon]{
+	margin-inline-start: 0px;
+	margin-inline-end: -26px;
+	opacity: 0;
+	transition: margin-inline-end 200ms linear, opacity 200ms linear;
+}
+:root[uidensity="compact"] #page-action-buttons > *[class^=urlbar-icon]{ margin-inline-end: -26px; }
+#page-action-buttons:hover > *[class^=urlbar-icon],
+#page-action-buttons > *[class^=urlbar-icon][open],
+#page-action-buttons > *[class^=urlbar-icon][open] ~ *[class^=urlbar-icon]{
+	opacity: 1;
+	margin-inline-end: 0px !important;
+}
+
+/* == Prevent expanding urlbar on focus == */
+#urlbar[breakout],
+#urlbar[breakout][breakout-extend] {
+	width: 100% !important;
+	top: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important;
+	left: 0 !important;
+}
+
+#urlbar[breakout][breakout-extend] > #urlbar-input-container,
+#urlbar-input-container {
+	height: var(--urlbar-height) !important;
+	width: 100% !important;
+	padding-block: unset !important;
+	padding-inline: unset !important;
+	transition: none !important;
+}
+
+#urlbar[breakout][breakout-extend] > #urlbar-background {
+	box-shadow: 0 1px 4px rgba(0,0,0,.05) !important;
+	animation: none !important;
+}
+/* == End of prevent expanding urlbar on focus == */
+
+
+/*
+================================================
+PANEL ARROW (Dropdown Hamburger Menu)
+================================================
+*/
+.panel-arrow {
+	fill: (var(--color-op-2)) !important;
+	background: transparent !important;
+	display: none !important;
+}
+
+.panel-subview-body {
+	color: #ffffff !important;
+	background: var(--color-op-2) !important;
+}
+.panel-arrowcontent { 
+	opacity: 0.8;
+	backdrop-filter: var(--bg-blur) !important;
+}
+
+
+/*
+================================================
+CUSTOMIZATION PAGE
+================================================
+*/
+
+#customization-container {
+	background: var(--color-op-1) !important;
+}
+
+.customizationmode-button {
+	-moz-appearance: none !important;
+	background: var(--color-op-1) !important;
+	padding: 5px !important;
+	border-radius: 6px !important;
+}
+
+.customizationmode-button:hover {
+	-moz-appearance: none !important;
+	background: var(--color-op-2) !important;
+	padding: 5px !important;
+	border-radius: 6px !important;
+}
+
+.customizationmode-button label {
+	color: var(--color-solid) !important;
+}
+
+
+/*
+================================================
+SIDEBAR (Contains history, bookmarks, and etc.)
+================================================
+*/
+
+#history-panel,
+#sidebar-search-container,
+#bookmarksPanel {
+	background: var(--color-op-2) !important;
+}
+
+#sidebar-search-container {
+	background-color: var(--color-op-0) !important;
+	-moz-appearance: -moz-mac-vibrancy-dark !important;
+}
+
+.close-icon, .urlbar-icon {
+	fill: var(--color-solid) !important;
+}
+
+#sidebar-box {
+	--sidebar-background-color: var(--color-op-0) !important;
+	-moz-appearance: -moz-mac-vibrancy-dark !important;
+}
+
+#browser vbox#appcontent tabbrowser,
+#content,
+#tabbrowser-tabpanels,
+browser[type=content-primary],
+browser[type=content] > html {
+  background: var(--color-op-2)!important
+}
