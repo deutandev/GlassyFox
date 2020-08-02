@@ -6,12 +6,6 @@
 		background: var(--color-op-0) !important;
 	}
 	body {
-		background-color: #00000000 !important;
-	}
-}
-
-@-moz-document url(about:privatebrowsing) {
-	:root{
-		scrollbar-width: none !important;
+		background-color: var(--color-op-0) !important;
 	}
 }

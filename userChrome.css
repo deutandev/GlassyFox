@@ -121,7 +121,6 @@ toolbar#nav-bar {
 	margin-top: 0;
 	margin-bottom: var(--navbar-margin);
 	z-index: -110;
-	visibility: hidden !important;
 }
 
 #navigator-toolbox:focus-within > #nav-bar,	
@@ -129,7 +128,6 @@ toolbar#nav-bar {
 	margin-top: 0;
 	margin-bottom: var(--navbar-margin);
 	z-index: 100;
-	visibility: visible !important;
 }
 /* === End of auto hide nav bar === */
 
