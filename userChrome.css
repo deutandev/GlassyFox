@@ -87,6 +87,14 @@ TABBAR
 	padding: 0 !important;
 }
 
+/* Close tab on hover */
+.tabbrowser-tab:not([selected]):not([pinned]) .tab-close-button {
+	display: none !important;
+}
+
+.tabbrowser-tab:not([selected]):not([pinned]):hover .tab-close-button {
+	display: -moz-box !important;
+}
 
 /*
 ================================================
