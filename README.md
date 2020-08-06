@@ -1,5 +1,6 @@
 #GlassyFox
 ##Tema untuk browser Firefox
+![GlassyFox screenshot](./.screenshot/screenshot.png)
 
 ##*What the heck is this?*
 GlassyFox terdiri dari berkas `userChrome.css` yang digunakan untuk kustomisasi broser Firefox, dari warna ataupun *layout* peramban Firefox.
