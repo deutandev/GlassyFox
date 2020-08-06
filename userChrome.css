@@ -19,7 +19,8 @@
 	--bg-blur: blur(10px);
 	--navbar-margin: -34px !important;
 	--urlbar-height: 28px !important;
-	--urlbar-toolbar-height: 30px !important; 
+	--urlbar-toolbar-height: 30px !important;
+	--space-from-top-of-window: 80px;
 }
 
 
@@ -130,6 +131,7 @@ toolbar#nav-bar {
 	z-index: 100;
 }
 /* === End of auto hide nav bar === */
+
 
 #urlbar-background, #searchbar {
 	backdrop-filter: var(--bg-blur);
@@ -284,3 +286,10 @@ browser[type=content-primary],
 browser[type=content] > html {
   background: var(--color-op-2)!important
 }
+
+
+/*
+================================================
+SIDE BOOKMARK
+================================================
+*/
